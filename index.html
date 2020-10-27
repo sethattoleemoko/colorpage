@@ -33,7 +33,7 @@
     </section>
     <script>
         const userinput = document.getElementById("UserInput");
-        userinput.onkeydown =(key)=>{if(key.keyCode == 13){changeColor(userinput.value);}};
+              userinput.onkeydown =(key)=>{if(key.keyCode == 13){changeColor(userinput.value);}};
         let style = document.getElementById("JsAffectedCss");
         function changeColor(val){
             if(val == ""){style.innerHTML = null;}
