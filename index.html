@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Color Page</title>
     <style>
-        body{
+        body {
             width: 100%;
             height: 100%;
             background-color: #2b2b2b;
         }
-        .content{
+
+        #Content {
             display: grid;
             align-content: center;
             margin: 10% auto;
             width: 30%;
             color: white;
         }
+
         #UserInput {
             background: none;
             border: none;
@@ -23,21 +26,52 @@
             padding: 0;
             color: white;
         }
+
+        ::placeholder {
+            color: white;
+        }
     </style>
     <style id="JsAffectedCss"></style>
 </head>
+
 <body>
-    <section class="content">
+    <section id="Content">
         <h1>Color Page</h1>
-        <input type="text" id="UserInput" placeholder="Enter a color name or hex code here." />
+        <input type="text" id="UserInput"
+            placeholder="Enter a color name or hex code here. (Use ESC to toggle this dialog.)" />
     </section>
     <script>
         const userinput = document.getElementById("UserInput");
-              userinput.onkeydown =(key)=>{if(key.keyCode == 13){changeColor(userinput.value);}};
+        const content = document.getElementById("Content");
         let style = document.getElementById("JsAffectedCss");
-        function changeColor(val){
-            if(val == ""){style.innerHTML = null;}
-            else {style.innerHTML = "body{background-color:" + val + ";}"}}
+
+        content.style.visibility = "visible";
+
+        userinput.onkeydown = (key) => {
+            if (key.keyCode == 13) {
+                changeColor(userinput.value);
+            }
+        }
+
+        document.onkeydown = (key) => {
+            if (key.keyCode == 27) {
+                if (content.style.visibility === "visible") {
+                    content.style.visibility = "hidden";
+                } else {
+                    content.style.visibility = "visible";
+                    userinput.select();
+                }
+            }
+        }
+
+        function changeColor(val) {
+            if (val == "") {
+                style.innerHTML = null;
+            } else {
+                style.innerHTML = "body{background-color:" + val + ";}"
+            }
+        }
     </script>
 </body>
+
 </html>
