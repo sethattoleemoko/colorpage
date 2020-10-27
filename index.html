@@ -43,7 +43,6 @@
     <script>
         const userinput = document.getElementById("UserInput");
         const content = document.getElementById("Content");
-        let style = document.getElementById("JsAffectedCss");
 
         content.style.visibility = "visible";
 
@@ -66,9 +65,9 @@
 
         function changeColor(val) {
             if (val == "") {
-                style.innerHTML = null;
+                document.body.style.backgroundColor = "#2b2b2b";
             } else {
-                style.innerHTML = "body{background-color:" + val + ";}"
+                document.body.style.backgroundColor = val;
             }
         }
     </script>
