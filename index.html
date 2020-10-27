@@ -8,16 +8,28 @@
     <style>
 
     </style>
-    <style id="background-color-css"></style>
+    <style id="JsAffectedCss"></style>
 </head>
 <body>
     <section class="content">
         <h1>Color Page</h1>
-        <input type="text" id="user-input" placeholder="Enter a color name or hex code here." />
+        <input type="text" id="UserInput" placeholder="Enter a color name or hex code here."/>
     </section>
 
     <script>
-
+        // Run the changeColor script when "return" is pressed.
+        const userinput = document.getElementById("UserInput");
+        let userinputValue = userinput.toString();
+            userinput.onkeydown = (key) =>  {
+                if(key.keyCode == 13){
+                    changeColor(userinput.value);
+                }
+            }
+        
+        // Change the background and invert the color of the text.
+        function changeColor(val){
+            document.getElementById("JsAffectedCss").innerHTML = "body{background-color:" + val + "}";
+        }
     </script>
 </body>
 </html>
