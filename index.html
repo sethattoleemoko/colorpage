@@ -1,43 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Color Page</title>
-
-    <style></style>
+    <style>
+        body{
+            width: 100%;
+            height: 100%;
+            background-color: #2b2b2b;
+        }
+        .content{
+            display: grid;
+            align-content: center;
+            margin: 10% auto;
+            width: 30%;
+            color: white;
+        }
+        #UserInput {
+            background: none;
+            border: none;
+            border-bottom: 1px solid white;
+            outline: none;
+            padding: 0;
+            color: white;
+        }
+    </style>
     <style id="JsAffectedCss"></style>
 </head>
-
 <body>
     <section class="content">
         <h1>Color Page</h1>
         <input type="text" id="UserInput" placeholder="Enter a color name or hex code here." />
     </section>
-
     <script>
-        // Run the changeColor script when "return" is pressed.
         const userinput = document.getElementById("UserInput");
-        let userinputValue = userinput.toString();
-        userinput.onkeydown = (key) => {
-            if (key.keyCode == 13) {
-                changeColor(userinput.value);
-            }
-        };
-
-        // Change the background and invert the color of the text.
+        userinput.onkeydown =(key)=>{if(key.keyCode == 13){changeColor(userinput.value);}};
         let style = document.getElementById("JsAffectedCss");
-
-        function changeColor(val) {
-            if (val == "") {
-                style.innerHTML = null;
-            } else {
-                style.innerHTML = style.innerHTML + "body{background-color:" + val + ";}";
-
-            }
-        }
+        function changeColor(val){
+            if(val == ""){style.innerHTML = null;}
+            else {style.innerHTML = "body{background-color:" + val + ";}"}}
     </script>
 </body>
-
 </html>
